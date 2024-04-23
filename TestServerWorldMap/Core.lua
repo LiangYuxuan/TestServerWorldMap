@@ -5,7 +5,7 @@ hooksecurefunc(WorldMapFrame, 'RefreshDetailLayers', function()
         for detailTile in detailLayer.detailTilePool:EnumerateActive() do
             local fileDataID = detailTile:GetTexture()
             if addon.tiles[fileDataID] then
-                detailTile:SetTexture(addon.tiles[fileDataID])
+                detailTile:SetTexture(addon.tiles[fileDataID], nil, nil, 'TRILINEAR')
             end
         end
     end
