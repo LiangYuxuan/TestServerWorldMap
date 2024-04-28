@@ -39,6 +39,7 @@ jobs:
           tag: v${{ steps.build.outputs.build }}
 
       - uses: softprops/action-gh-release@v2
+        if: ${{ steps.build.outputs.updated == 'true' }}
         with:
           files: TestServerWorldMap-${{ steps.build.outputs.build }}.zip
           tag_name: v${{ steps.build.outputs.build }}
