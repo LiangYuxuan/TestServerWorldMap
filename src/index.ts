@@ -140,6 +140,11 @@ overlayTile
     });
 console.log(new Date().toISOString(), '[INFO]: Parsed DB2 files');
 
+if (tileFiles.length === 0) {
+    console.log(new Date().toISOString(), '[INFO]: No tile files found');
+    process.exit(0);
+}
+
 console.log(new Date().toISOString(), '[INFO]: Generating tile files list');
 const tileIDs = tileFiles
     .map(({ fileDataID }) => `[${fileDataID.toString()}] = "Interface/AddOns/TestServerWorldMap/tiles/${fileDataID.toString()}.blp"`)
