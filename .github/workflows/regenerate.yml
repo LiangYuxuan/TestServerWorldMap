@@ -36,8 +36,9 @@ jobs:
           author_email: github-actions[bot]@users.noreply.github.com
           message: |
             chore: update addon to build ${{ steps.build.outputs.build }}
-          tag: ${{ steps.build.outputs.build }}
+          tag: v${{ steps.build.outputs.build }}
 
       - uses: softprops/action-gh-release@v2
         with:
           files: TestServerWorldMap-${{ steps.build.outputs.build }}.zip
+          tag_name: v${{ steps.build.outputs.build }}
