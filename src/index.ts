@@ -3,6 +3,7 @@
 /* eslint-disable no-console */
 
 import assert from 'node:assert';
+import { spawnSync } from 'node:child_process';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -10,6 +11,19 @@ import { fileURLToPath } from 'node:url';
 import { CASCClient, WDCReader, DBDParser } from '@rhyster/wow-casc-dbc';
 
 import { latestVersion } from './client.ts';
+
+const root = path.resolve(fileURLToPath(import.meta.url), '..', '..');
+const tocFile = path.join(root, 'TestServerWorldMap', 'TestServerWorldMap.toc');
+const tocFileText = await fs.readFile(tocFile, 'utf-8');
+const prevBuild = tocFileText.match(/## Version: (\d+)/)?.[1];
+
+const currBuild = latestVersion.version.BuildId;
+assert(currBuild, 'Failed to get current build number');
+
+if (prevBuild === currBuild) {
+    console.log(new Date().toISOString(), `[INFO]: Build ${currBuild} is up to date`);
+    process.exit(0);
+}
 
 const client = new CASCClient('us', latestVersion.product, latestVersion.version);
 await client.init();
@@ -131,7 +145,7 @@ const tileIDs = tileFiles
     .map(({ fileDataID }) => `[${fileDataID.toString()}] = "Interface/AddOns/TestServerWorldMap/tiles/${fileDataID.toString()}.blp"`)
     .join(',\n    ');
 
-const dataFile = path.join(fileURLToPath(import.meta.url), '..', '..', 'TestServerWorldMap', 'Data.lua');
+const dataFile = path.join(root, 'TestServerWorldMap', 'Data.lua');
 await fs.writeFile(
     dataFile,
     `local _, addon = ...\n\naddon.tiles = {\n    ${tileIDs},\n}\n`,
@@ -139,7 +153,7 @@ await fs.writeFile(
 console.log(new Date().toISOString(), '[INFO]: Generated tile files list');
 
 console.log(new Date().toISOString(), '[INFO]: Updating tile files');
-const tilesDir = path.join(fileURLToPath(import.meta.url), '..', '..', 'TestServerWorldMap', 'tiles');
+const tilesDir = path.join(root, 'TestServerWorldMap', 'tiles');
 await fs.rm(tilesDir, { recursive: true }).catch(() => {});
 await fs.mkdir(tilesDir);
 
@@ -151,4 +165,18 @@ for (const { fileDataID, cKey } of tileFiles) {
 
     const file = path.join(tilesDir, `${fileDataID.toString()}.blp`);
     await fs.writeFile(file, res.buffer);
+}
+console.log(new Date().toISOString(), '[INFO]: Updated tile files');
+
+console.log(new Date().toISOString(), '[INFO]: Updating TOC file');
+const tocFileNew = tocFileText.replace(/## Version: \d+/, `## Version: ${currBuild}`);
+await fs.writeFile(tocFile, tocFileNew);
+console.log(new Date().toISOString(), '[INFO]: Updated TOC file');
+
+console.log(new Date().toISOString(), '[INFO]: Packaging addon');
+spawnSync('zip', ['-r', `TestServerWorldMap-${currBuild}.zip`, 'TestServerWorldMap'], { cwd: root });
+console.log(new Date().toISOString(), '[INFO]: Packaged addon');
+
+if (process.env.GITHUB_OUTPUT) {
+    await fs.writeFile(process.env.GITHUB_OUTPUT, `updated=true\nbuild=${currBuild}\n`, { flag: 'a' });
 }
