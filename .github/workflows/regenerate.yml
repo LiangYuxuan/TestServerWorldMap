@@ -1,0 +1,43 @@
+name: regenerate
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: 0 1 * * *
+
+jobs:
+  regenerate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - run: corepack enable
+
+      - run: pnpm install
+
+      - run: pnpm lint
+
+      - run: pnpm start
+        id: build
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: EndBug/add-and-commit@v9
+        if: ${{ steps.build.outputs.updated == 'true' }}
+        with:
+          author_name: GitHub Action
+          author_email: github-actions[bot]@users.noreply.github.com
+          message: |
+            chore: update addon to build ${{ steps.build.outputs.build }}
+          tag: ${{ steps.build.outputs.build }}
+
+      - uses: softprops/action-gh-release@v2
+        with:
+          files: TestServerWorldMap-${{ steps.build.outputs.build }}.zip
