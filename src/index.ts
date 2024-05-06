@@ -12,6 +12,8 @@ import { CASCClient, WDCReader, DBDParser } from '@rhyster/wow-casc-dbc';
 
 import { latestVersion } from './client.ts';
 
+const minUiArtID = 1800;
+
 const root = path.resolve(fileURLToPath(import.meta.url), '..', '..');
 const tocFile = path.join(root, 'TestServerWorldMap', 'TestServerWorldMap.toc');
 const tocFileText = await fs.readFile(tocFile, 'utf-8');
@@ -52,7 +54,8 @@ const loadDB2 = async (fileDataID: number) => {
 };
 
 console.log(new Date().toISOString(), '[INFO]: Loading DB2 files');
-const [mapXArt, artTile, overlay, overlayTile] = await Promise.all([
+const [uiMap, mapXArt, artTile, overlay, overlayTile] = await Promise.all([
+    loadDB2(1957206), // dbfilesclient/uimap.db2
     loadDB2(1957217), // dbfilesclient/uimapxmapart.db2
     loadDB2(1957210), // dbfilesclient/uimaparttile.db2
     loadDB2(1134579), // dbfilesclient/worldmapoverlay.db2
@@ -76,14 +79,18 @@ const art2Map = new Map(
 );
 
 interface TileFileInfo {
-    fileDataID: number,
+    uiMapID: number,
+    uiMapArtID: number,
     source: 'ArtTile' | 'OverlayTile',
+    index: number,
+    fileDataID: number,
     cKey: string,
 }
 
 const tileFiles: TileFileInfo[] = [];
-const handleMapFile = (fileDataID: number, artID: number, source: 'ArtTile' | 'OverlayTile') => {
-    if (artID > 1800 && fileDataID > 0 && art2Map.has(artID)) {
+const handleMapFile = (fileDataID: number, index: number, artID: number, source: 'ArtTile' | 'OverlayTile') => {
+    const uiMapID = art2Map.get(artID);
+    if (artID > minUiArtID && uiMapID && fileDataID > 0) {
         const cKeys = fileDataID2CKey.get(fileDataID);
         assert(cKeys, `Failed to get content keys of ${source} fileDataID ${fileDataID.toString()}`);
 
@@ -92,7 +99,12 @@ const handleMapFile = (fileDataID: number, artID: number, source: 'ArtTile' | 'O
 
         if (cKey && !zhCN) {
             tileFiles.push({
-                fileDataID, source, cKey: cKey.cKey,
+                uiMapID,
+                uiMapArtID: artID,
+                source,
+                index,
+                fileDataID,
+                cKey: cKey.cKey,
             });
         }
     }
@@ -104,10 +116,12 @@ artTile
         const row = artTile.getRowData(id);
         const fileDataID = row?.FileDataID;
         const artID = row?.UiMapArtID;
+        const rowIndex = row?.RowIndex;
+        const colIndex = row?.ColIndex;
 
-        assert(typeof fileDataID === 'number' && typeof artID === 'number');
+        assert(typeof fileDataID === 'number' && typeof artID === 'number' && typeof rowIndex === 'number' && typeof colIndex === 'number');
 
-        handleMapFile(fileDataID, artID, 'ArtTile');
+        handleMapFile(fileDataID, rowIndex * 100 + colIndex, artID, 'ArtTile');
     });
 
 const overlay2Art = new Map(
@@ -129,14 +143,16 @@ overlayTile
         const row = overlayTile.getRowData(id);
         const fileDataID = row?.FileDataID;
         const overlayID = row?.WorldMapOverlayID;
+        const rowIndex = row?.RowIndex;
+        const colIndex = row?.ColIndex;
 
-        assert(typeof fileDataID === 'number' && typeof overlayID === 'number');
+        assert(typeof fileDataID === 'number' && typeof overlayID === 'number' && typeof rowIndex === 'number' && typeof colIndex === 'number');
 
         const artID = overlay2Art.get(overlayID);
 
         assert(artID);
 
-        handleMapFile(fileDataID, artID, 'OverlayTile');
+        handleMapFile(fileDataID, rowIndex * 100 + colIndex, artID, 'OverlayTile');
     });
 console.log(new Date().toISOString(), '[INFO]: Parsed DB2 files');
 
@@ -146,15 +162,40 @@ if (tileFiles.length === 0) {
 }
 
 console.log(new Date().toISOString(), '[INFO]: Generating tile files list');
-const tileIDs = tileFiles
-    .map(({ fileDataID }) => `[${fileDataID.toString()}] = "Interface/AddOns/TestServerWorldMap/tiles/${fileDataID.toString()}.blp"`)
-    .join(',\n    ');
+let tilesText = 'local _, addon = ...\n\naddon.tiles = {';
+tileFiles
+    .sort((a, b) => {
+        if (a.uiMapID !== b.uiMapID) {
+            return a.uiMapID - b.uiMapID;
+        }
+
+        if (a.source !== b.source) {
+            return a.source === 'ArtTile' ? -1 : 1;
+        }
+
+        return a.index - b.index;
+    })
+    .reduce((prev, {
+        uiMapID, uiMapArtID, source, fileDataID, cKey,
+    }) => {
+        if (prev.uiMapID !== uiMapID) {
+            const uiMapRow = uiMap.getRowData(uiMapID);
+            const name = uiMapRow?.Name_lang;
+            assert(typeof name === 'string', `Failed to get name of uiMapID ${uiMapID.toString()}`);
+
+            tilesText += `\n    -- ${uiMapID.toString()} / ${name} / ${uiMapArtID.toString()}\n    -- ${source}\n`;
+        } else if (prev.source !== source) {
+            tilesText += `    -- ${source}\n`;
+        }
+
+        tilesText += `    [${fileDataID.toString()}] = "Interface/AddOns/TestServerWorldMap/tiles/${fileDataID.toString()}.blp", -- ${cKey}\n`;
+
+        return { uiMapID, source };
+    }, { uiMapID: -1, source: '' });
+tilesText += '}\n';
 
 const dataFile = path.join(root, 'TestServerWorldMap', 'Data.lua');
-await fs.writeFile(
-    dataFile,
-    `local _, addon = ...\n\naddon.tiles = {\n    ${tileIDs},\n}\n`,
-);
+await fs.writeFile(dataFile, tilesText);
 console.log(new Date().toISOString(), '[INFO]: Generated tile files list');
 
 console.log(new Date().toISOString(), '[INFO]: Updating tile files');
