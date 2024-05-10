@@ -1,6 +1,6 @@
 ## Interface: 110000
 ## Author: Rhythm
-## Version: 54521
+## Version: 54605
 ## Title: TestServerWorldMap
 
 Data.lua
