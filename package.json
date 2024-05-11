@@ -17,6 +17,6 @@
   },
   "dependencies": {
     "@rhyster/wow-casc-dbc": "^2.4.0",
-    "tsx": "^4.9.4"
+    "tsx": "^4.10.0"
   }
 }
