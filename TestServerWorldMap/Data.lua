@@ -2181,18 +2181,18 @@ addon.tiles = {
 
     -- 2345 / Deephaul Ravine / 1898
     -- ArtTile
-    [5869638] = "Interface/AddOns/TestServerWorldMap/tiles/5869638.blp", -- 4174862c5fab5b3188bd16582e28fa02
-    [5869642] = "Interface/AddOns/TestServerWorldMap/tiles/5869642.blp", -- a2c319337a6b1d85c35107a58f9db776
-    [5869643] = "Interface/AddOns/TestServerWorldMap/tiles/5869643.blp", -- 4ce248ca6e60bfec960173693a2a40de
-    [5869644] = "Interface/AddOns/TestServerWorldMap/tiles/5869644.blp", -- b598c1f11ae1628a6942f86319ed390f
-    [5869645] = "Interface/AddOns/TestServerWorldMap/tiles/5869645.blp", -- 0a896b744110cfe044ce130efa8a6db6
-    [5869646] = "Interface/AddOns/TestServerWorldMap/tiles/5869646.blp", -- 72c75f6cc89b1e66649be9678a88acc7
-    [5869647] = "Interface/AddOns/TestServerWorldMap/tiles/5869647.blp", -- 5ba3aa95199dbb049d4708f92de82fcf
-    [5869648] = "Interface/AddOns/TestServerWorldMap/tiles/5869648.blp", -- 88d9deb23aa7495429599667d2a4a15e
-    [5869649] = "Interface/AddOns/TestServerWorldMap/tiles/5869649.blp", -- 1cba6884321d6f27f276ba059a525c99
-    [5869639] = "Interface/AddOns/TestServerWorldMap/tiles/5869639.blp", -- c29022251226cf4e18dffb371542a960
-    [5869640] = "Interface/AddOns/TestServerWorldMap/tiles/5869640.blp", -- 923787885f201548e2b4f86ff1c7b87c
-    [5869641] = "Interface/AddOns/TestServerWorldMap/tiles/5869641.blp", -- f3f7ea3d18f77d482e56e6c9330b20aa
+    [5869638] = "Interface/AddOns/TestServerWorldMap/tiles/5869638.blp", -- 26a375a2623fa459f1b7cf23fb342ba2
+    [5869642] = "Interface/AddOns/TestServerWorldMap/tiles/5869642.blp", -- b3d07b2e181c31651f97b7635dc83a93
+    [5869643] = "Interface/AddOns/TestServerWorldMap/tiles/5869643.blp", -- 6e4bf4f7c9ed65c559c919f705d86ba3
+    [5869644] = "Interface/AddOns/TestServerWorldMap/tiles/5869644.blp", -- 9f51841030141a6821585f2a4fbd29dc
+    [5869645] = "Interface/AddOns/TestServerWorldMap/tiles/5869645.blp", -- 8dbf916e03c279d14fbe6f2d54a71458
+    [5869646] = "Interface/AddOns/TestServerWorldMap/tiles/5869646.blp", -- fd44c0de5680b2b77c4f9884c4d5c1da
+    [5869647] = "Interface/AddOns/TestServerWorldMap/tiles/5869647.blp", -- 9ac751c38157f6698f5da2807a60ce48
+    [5869648] = "Interface/AddOns/TestServerWorldMap/tiles/5869648.blp", -- 2e5646c3ffbf5b186b18bf00859f31e7
+    [5869649] = "Interface/AddOns/TestServerWorldMap/tiles/5869649.blp", -- 3fd016d62978e0e7c63e9e1465ae2a6d
+    [5869639] = "Interface/AddOns/TestServerWorldMap/tiles/5869639.blp", -- a75c6e88fd6fe5df59cef0fbbff4551f
+    [5869640] = "Interface/AddOns/TestServerWorldMap/tiles/5869640.blp", -- faf915c136741a269433dd08e3c371e7
+    [5869641] = "Interface/AddOns/TestServerWorldMap/tiles/5869641.blp", -- dca63482f01749b469b82a84085893b2
 
     -- 2347 / Delve_Nerubian_04A / 1900
     -- ArtTile
