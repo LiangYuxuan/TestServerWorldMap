@@ -47,7 +47,7 @@ const loadDB2 = async (fileDataID: number) => {
     assert(cKey, `No cKey found for fileDataID ${fileDataID.toString()} in enUS`);
 
     const data = await client.getFileByContentKey(cKey.cKey, true);
-    const reader = new WDCReader(data.buffer, data.type === 'partial' ? data.blocks : undefined);
+    const reader = new WDCReader(data.buffer, data.blocks);
     const parser = await DBDParser.parse(reader);
 
     return parser;
