@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@rhyster/wow-casc-dbc": "^2.5.1",
-    "tsx": "^4.13.2"
+    "tsx": "^4.14.0"
   },
   "packageManager": "pnpm@9.2.0"
 }
