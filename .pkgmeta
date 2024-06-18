@@ -1,0 +1,11 @@
+package-as: TestServerWorldMap
+
+ignore:
+  - src
+  - package.json
+  - pnpm-lock.yaml
+  - README.md
+  - tsconfig.json
+
+move-folders:
+  TestServerWorldMap/TestServerWorldMap: TestServerWorldMap
