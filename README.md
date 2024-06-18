@@ -18,3 +18,5 @@ After check and download texture, `TestServerWorldMap` folder will be updated an
 ## License
 
 MIT License
+
+Icon created by [Freepik - Flaticon](https://www.flaticon.com/free-icons/treasure-map)

@@ -2,6 +2,7 @@
 ## Author: Rhythm
 ## Version: 55120
 ## Title: TestServerWorldMap
+## IconTexture: Interface\AddOns\TestServerWorldMap\Icon.png
 
 Data.lua
 Core.lua
