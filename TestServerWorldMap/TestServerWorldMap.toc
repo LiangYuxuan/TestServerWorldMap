@@ -3,6 +3,9 @@
 ## Version: 55120
 ## Title: TestServerWorldMap
 ## IconTexture: Interface\AddOns\TestServerWorldMap\Icon.png
+## X-Curse-Project-ID: 1039290
+## X-WoWI-ID: 26758
+## X-Wago-ID: EGPXAkG1
 
 Data.lua
 Core.lua
