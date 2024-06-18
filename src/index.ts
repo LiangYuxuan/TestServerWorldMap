@@ -3,7 +3,6 @@
 /* eslint-disable no-console */
 
 import assert from 'node:assert';
-import { spawnSync } from 'node:child_process';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -156,11 +155,6 @@ overlayTile
     });
 console.log(new Date().toISOString(), '[INFO]: Parsed DB2 files');
 
-if (tileFiles.length === 0) {
-    console.log(new Date().toISOString(), '[INFO]: No tile files found');
-    process.exit(0);
-}
-
 console.log(new Date().toISOString(), '[INFO]: Generating tile files list');
 let tilesText = 'local _, addon = ...\n\naddon.tiles = {';
 tileFiles
@@ -218,10 +212,6 @@ console.log(new Date().toISOString(), '[INFO]: Updating TOC file');
 const tocFileNew = tocFileText.replace(/## Version: \d+/, `## Version: ${currBuild}`);
 await fs.writeFile(tocFile, tocFileNew);
 console.log(new Date().toISOString(), '[INFO]: Updated TOC file');
-
-console.log(new Date().toISOString(), '[INFO]: Packaging addon');
-spawnSync('zip', ['-r', `TestServerWorldMap-${currBuild}.zip`, 'TestServerWorldMap'], { cwd: root });
-console.log(new Date().toISOString(), '[INFO]: Packaged addon');
 
 if (process.env.GITHUB_OUTPUT) {
     await fs.writeFile(process.env.GITHUB_OUTPUT, `updated=true\nbuild=${currBuild}\n`, { flag: 'a' });
