@@ -7,7 +7,7 @@
     "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix"
   },
   "devDependencies": {
-    "@types/node": "^20.14.6",
+    "@types/node": "^20.14.7",
     "@typescript-eslint/eslint-plugin": "^7.13.1",
     "@typescript-eslint/parser": "^7.13.1",
     "eslint": "^8.57.0",
@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@rhyster/wow-casc-dbc": "^2.5.1",
-    "tsx": "^4.15.6"
+    "tsx": "^4.15.7"
   },
   "packageManager": "pnpm@9.4.0"
 }
