@@ -1,6 +1,7 @@
 /* eslint-disable no-await-in-loop */
 /* eslint-disable no-bitwise */
 /* eslint-disable no-console */
+/* eslint-disable import-x/no-unused-modules */
 
 import assert from 'node:assert';
 import fs from 'node:fs/promises';
@@ -16,7 +17,7 @@ const minUiArtID = 1800;
 const root = path.resolve(fileURLToPath(import.meta.url), '..', '..');
 const tocFile = path.join(root, 'TestServerWorldMap', 'TestServerWorldMap.toc');
 const tocFileText = await fs.readFile(tocFile, 'utf-8');
-const prevBuild = tocFileText.match(/## Version: (\d+)/)?.[1];
+const prevBuild = /## Version: (\d+)/.exec(tocFileText)?.[1];
 
 const currBuild = latestVersion.version.BuildId;
 assert(currBuild, 'Failed to get current build number');
@@ -41,7 +42,6 @@ const loadDB2 = async (fileDataID: number) => {
     assert(cKeys, `No cKeys found for fileDataID ${fileDataID.toString()}`);
 
     const cKey = cKeys
-        // eslint-disable-next-line no-bitwise
         .find((data) => !!(data.localeFlags & CASCClient.LocaleFlags.enUS));
     assert(cKey, `No cKey found for fileDataID ${fileDataID.toString()} in enUS`);
 
@@ -53,7 +53,13 @@ const loadDB2 = async (fileDataID: number) => {
 };
 
 console.log(new Date().toISOString(), '[INFO]: Loading DB2 files');
-const [uiMap, mapXArt, artTile, overlay, overlayTile] = await Promise.all([
+const [
+    uiMap,
+    mapXArt,
+    artTile,
+    overlay,
+    overlayTile,
+] = await Promise.all([
     loadDB2(1957206), // dbfilesclient/uimap.db2
     loadDB2(1957217), // dbfilesclient/uimapxmapart.db2
     loadDB2(1957210), // dbfilesclient/uimaparttile.db2
@@ -89,7 +95,7 @@ interface TileFileInfo {
 const tileFiles: TileFileInfo[] = [];
 const handleMapFile = (fileDataID: number, index: number, artID: number, source: 'ArtTile' | 'OverlayTile') => {
     const uiMapID = art2Map.get(artID);
-    if (artID > minUiArtID && uiMapID && fileDataID > 0) {
+    if (artID > minUiArtID && uiMapID !== undefined && fileDataID > 0) {
         const cKeys = fileDataID2CKey.get(fileDataID);
         assert(cKeys, `Failed to get content keys of ${source} fileDataID ${fileDataID.toString()}`);
 
@@ -149,7 +155,7 @@ overlayTile
 
         const artID = overlay2Art.get(overlayID);
 
-        assert(artID);
+        assert(typeof artID === 'number');
 
         handleMapFile(fileDataID, rowIndex * 100 + colIndex, artID, 'OverlayTile');
     });
@@ -194,10 +200,11 @@ console.log(new Date().toISOString(), '[INFO]: Generated tile files list');
 
 console.log(new Date().toISOString(), '[INFO]: Updating tile files');
 const tilesDir = path.join(root, 'TestServerWorldMap', 'tiles');
-await fs.rm(tilesDir, { recursive: true }).catch(() => {});
+await fs.rm(tilesDir, { recursive: true }).catch(() => {
+    // do nothing
+});
 await fs.mkdir(tilesDir);
 
-// eslint-disable-next-line no-restricted-syntax
 for (const { fileDataID, cKey } of tileFiles) {
     console.log(new Date().toISOString(), `[INFO]: Download ${fileDataID.toString()}.blp`);
 
@@ -213,6 +220,6 @@ const tocFileNew = tocFileText.replace(/## Version: \d+/, `## Version: ${currBui
 await fs.writeFile(tocFile, tocFileNew);
 console.log(new Date().toISOString(), '[INFO]: Updated TOC file');
 
-if (process.env.GITHUB_OUTPUT) {
+if (process.env.GITHUB_OUTPUT !== undefined) {
     await fs.writeFile(process.env.GITHUB_OUTPUT, `updated=true\nbuild=${currBuild}\n`, { flag: 'a' });
 }

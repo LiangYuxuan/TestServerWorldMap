@@ -3,9 +3,13 @@ import { CASCClient } from '@rhyster/wow-casc-dbc';
 type Version = NonNullable<Awaited<ReturnType<typeof CASCClient['getProductVersion']>>>;
 
 const region = 'us';
-const products = ['wowt', 'wowxptr', 'wow_beta'];
+const products = [
+    'wowt',
+    'wowxptr',
+    'wow_beta',
+];
 
-export const versions = await Promise.all(products.map(async (product) => {
+const versions = await Promise.all(products.map(async (product) => {
     const version = await CASCClient.getProductVersion(region, product);
     return {
         product,
@@ -13,15 +17,24 @@ export const versions = await Promise.all(products.map(async (product) => {
     };
 }));
 
+// eslint-disable-next-line import-x/prefer-default-export
 export const latestVersion = versions
     .filter((data): data is { product: string, version: Version } => !!data.version)
     .reduce((prev, data) => {
         const version = data.version.VersionsName;
-        const [major, minor, patch, build] = version
+        const [
+            major,
+            minor,
+            patch,
+            build,
+        ] = version
             .split('.')
             .map((v) => parseInt(v, 10));
         const [
-            prevMajor, prevMinor, prevPatch, prevBuild,
+            prevMajor,
+            prevMinor,
+            prevPatch,
+            prevBuild,
         ] = prev.version.VersionsName.split('.').map((v) => parseInt(v, 10));
 
         if (major > prevMajor) {
