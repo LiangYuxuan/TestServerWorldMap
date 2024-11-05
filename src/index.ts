@@ -15,12 +15,15 @@ import { latestVersion } from './client.ts';
 const root = path.resolve(fileURLToPath(import.meta.url), '..', '..');
 const tocFile = path.join(root, 'TestServerWorldMap', 'TestServerWorldMap.toc');
 const tocFileText = await fs.readFile(tocFile, 'utf-8');
-const prevBuild = /## Version: (\d+)/.exec(tocFileText)?.[1];
+const matchResult = /## Version: (\d+)\.?(\d*)/.exec(tocFileText);
+const prevBuild = matchResult?.[1];
+const prevBuildMinor = parseInt(matchResult?.[2] ?? '0', 10);
 
 const currBuild = latestVersion.version.BuildId;
+const currBuildMinor = prevBuild === currBuild ? prevBuildMinor + 1 : 0;
 assert(currBuild, 'Failed to get current build number');
 
-if (prevBuild === currBuild) {
+if (process.argv[2] !== '--force' && prevBuild === currBuild) {
     console.log(new Date().toISOString(), `[INFO]: Build ${currBuild} is up to date`);
     process.exit(0);
 }
@@ -214,8 +217,9 @@ for (const { fileDataID, cKey } of tileFiles) {
 console.log(new Date().toISOString(), '[INFO]: Updated tile files');
 
 console.log(new Date().toISOString(), '[INFO]: Updating TOC file');
-const tocFileNew = tocFileText.replace(/## Version: \d+/, `## Version: ${currBuild}`);
-await fs.writeFile(tocFile, tocFileNew);
+const versionText = currBuildMinor > 0 ? `${currBuild}.${currBuildMinor.toString()}` : currBuild;
+const tocFileTextNew = tocFileText.replace(/## Version: \d+/, `## Version: ${versionText}`);
+await fs.writeFile(tocFile, tocFileTextNew);
 console.log(new Date().toISOString(), '[INFO]: Updated TOC file');
 
 if (process.env.GITHUB_OUTPUT !== undefined) {
