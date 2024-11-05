@@ -4,6 +4,7 @@
   "type": "module",
   "private": true,
   "scripts": {
+    "build": "tsc --project ./",
     "start": "tsx src/index.ts",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
