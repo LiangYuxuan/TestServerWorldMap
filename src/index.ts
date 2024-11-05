@@ -12,8 +12,6 @@ import { CASCClient, WDCReader, DBDParser } from '@rhyster/wow-casc-dbc';
 
 import { latestVersion } from './client.ts';
 
-const minUiArtID = 1800;
-
 const root = path.resolve(fileURLToPath(import.meta.url), '..', '..');
 const tocFile = path.join(root, 'TestServerWorldMap', 'TestServerWorldMap.toc');
 const tocFileText = await fs.readFile(tocFile, 'utf-8');
@@ -95,7 +93,7 @@ interface TileFileInfo {
 const tileFiles: TileFileInfo[] = [];
 const handleMapFile = (fileDataID: number, index: number, artID: number, source: 'ArtTile' | 'OverlayTile') => {
     const uiMapID = art2Map.get(artID);
-    if (artID > minUiArtID && uiMapID !== undefined && fileDataID > 0) {
+    if (uiMapID !== undefined && fileDataID > 0) {
         const cKeys = fileDataID2CKey.get(fileDataID);
         assert(cKeys, `Failed to get content keys of ${source} fileDataID ${fileDataID.toString()}`);
 
