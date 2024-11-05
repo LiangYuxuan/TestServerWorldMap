@@ -17,7 +17,9 @@ const tocFile = path.join(root, 'TestServerWorldMap', 'TestServerWorldMap.toc');
 const tocFileText = await fs.readFile(tocFile, 'utf-8');
 const matchResult = /## Version: (\d+)\.?(\d*)/.exec(tocFileText);
 const prevBuild = matchResult?.[1];
-const prevBuildMinor = parseInt(matchResult?.[2] ?? '0', 10);
+const prevBuildMinor = typeof matchResult?.[2] === 'string' && matchResult[2].length > 0
+    ? parseInt(matchResult[2], 10)
+    : 0;
 
 const currBuild = latestVersion.version.BuildId;
 const currBuildMinor = prevBuild === currBuild ? prevBuildMinor + 1 : 0;
