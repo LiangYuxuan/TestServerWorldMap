@@ -1,6 +1,110 @@
 local _, addon = ...
 
 addon.tiles = {
+    -- 153 / Gundrak / 158
+    -- ArtTile
+    [252418] = "Interface/AddOns/TestServerWorldMap/tiles/252418.blp", -- 5c811335ad4cd3acad4e2a46224b6804
+    [252434] = "Interface/AddOns/TestServerWorldMap/tiles/252434.blp", -- 50c6f39dcd2fae4c438288a1035897c3
+    [252435] = "Interface/AddOns/TestServerWorldMap/tiles/252435.blp", -- 1adb9c6e4ee745029a48a5d1ed3f9c3d
+    [252436] = "Interface/AddOns/TestServerWorldMap/tiles/252436.blp", -- be07b72be81ed489ca6f01a575c3c3a0
+    [252437] = "Interface/AddOns/TestServerWorldMap/tiles/252437.blp", -- 388e0a3af24c025d8b9cdc0a289abbaf
+    [252438] = "Interface/AddOns/TestServerWorldMap/tiles/252438.blp", -- d4788d8e16161ca664f40317ea6b25e0
+    [252439] = "Interface/AddOns/TestServerWorldMap/tiles/252439.blp", -- a8ce2ddbd655b7566fb12bc3656bc266
+    [252440] = "Interface/AddOns/TestServerWorldMap/tiles/252440.blp", -- 4b0b190fcffa597adb5880126fb37713
+    [252441] = "Interface/AddOns/TestServerWorldMap/tiles/252441.blp", -- 9b2701382b83e94c2aa4100baf4440d1
+    [252419] = "Interface/AddOns/TestServerWorldMap/tiles/252419.blp", -- a591e776227b857d4a39b947517fd7fc
+    [252420] = "Interface/AddOns/TestServerWorldMap/tiles/252420.blp", -- 4cc0fc64db7bc5a646db04fd07624111
+    [252421] = "Interface/AddOns/TestServerWorldMap/tiles/252421.blp", -- 855fa52fecef30e19ad8a67e770d128f
+
+    -- 582 / Lunarfall / 604
+    -- ArtTile
+    [1003651] = "Interface/AddOns/TestServerWorldMap/tiles/1003651.blp", -- 6b6e102f387f1340bacf6e3e8ebe7ce8
+    [1003655] = "Interface/AddOns/TestServerWorldMap/tiles/1003655.blp", -- 1264229c7be87b1da4f0166213de6508
+    [1003656] = "Interface/AddOns/TestServerWorldMap/tiles/1003656.blp", -- 13130818d24a736ec5474b53cb7dbde3
+    [1003657] = "Interface/AddOns/TestServerWorldMap/tiles/1003657.blp", -- 647297c9a1196fd5a314911f608503b7
+    [1003658] = "Interface/AddOns/TestServerWorldMap/tiles/1003658.blp", -- 6f14c509810f984e8ae5e63123d624bc
+    [1003659] = "Interface/AddOns/TestServerWorldMap/tiles/1003659.blp", -- 6448599d14642de2482b2754674a67ba
+    [1003660] = "Interface/AddOns/TestServerWorldMap/tiles/1003660.blp", -- bb6f09ec95abea0a7cd6a9acf5034704
+    [1003661] = "Interface/AddOns/TestServerWorldMap/tiles/1003661.blp", -- 4c8cfe48a360134f355f9ab16b07da1f
+    [1003662] = "Interface/AddOns/TestServerWorldMap/tiles/1003662.blp", -- 01e4fc6fac2cd655fc5a7b001d175615
+    [1003652] = "Interface/AddOns/TestServerWorldMap/tiles/1003652.blp", -- 0038ca0dcbe14d322a412e3ca6aaf865
+    [1003653] = "Interface/AddOns/TestServerWorldMap/tiles/1003653.blp", -- 9fa2755f3a3d46986c37b25623eb38f1
+    [1003654] = "Interface/AddOns/TestServerWorldMap/tiles/1003654.blp", -- 641a2b5ec501c4653b952be27bf810f2
+
+    -- 791 / Temple of the Jade Serpent / 816
+    -- ArtTile
+    [1445088] = "Interface/AddOns/TestServerWorldMap/tiles/1445088.blp", -- 596f131b3cd4f0aa0f14978c142d5963
+    [1445092] = "Interface/AddOns/TestServerWorldMap/tiles/1445092.blp", -- b23e7fa2d613aef0a0cf9ba3ecbd83b5
+    [1445093] = "Interface/AddOns/TestServerWorldMap/tiles/1445093.blp", -- 195efccfd904557d5a1bd2a877f4cc30
+    [1445094] = "Interface/AddOns/TestServerWorldMap/tiles/1445094.blp", -- f0e31426262aecf89e394703c162d46c
+    [1445095] = "Interface/AddOns/TestServerWorldMap/tiles/1445095.blp", -- a752623ffe12c9df72309c4101e8a4d4
+    [1445096] = "Interface/AddOns/TestServerWorldMap/tiles/1445096.blp", -- 0ecf285927926df22284d400ac0a0643
+    [1445097] = "Interface/AddOns/TestServerWorldMap/tiles/1445097.blp", -- 775f5f6e93ec2f34fb871883329de616
+    [1445098] = "Interface/AddOns/TestServerWorldMap/tiles/1445098.blp", -- 8c429424614eee3a4eb9766060f70136
+    [1445099] = "Interface/AddOns/TestServerWorldMap/tiles/1445099.blp", -- acdc044d5e394e049285531613c82a11
+    [1445089] = "Interface/AddOns/TestServerWorldMap/tiles/1445089.blp", -- e22876cb58e6d098255938b27e2ef3f3
+    [1445090] = "Interface/AddOns/TestServerWorldMap/tiles/1445090.blp", -- 1cd5e0423fd966688179c330bbd3f6f4
+    [1445091] = "Interface/AddOns/TestServerWorldMap/tiles/1445091.blp", -- 80561e529e7b4dea45f9cbd3658cbc07
+
+    -- 792 / Temple of the Jade Serpent / 817
+    -- ArtTile
+    [1445100] = "Interface/AddOns/TestServerWorldMap/tiles/1445100.blp", -- c39d98bc53b62fd7a5f41abc9f7b783b
+    [1445104] = "Interface/AddOns/TestServerWorldMap/tiles/1445104.blp", -- a89a2768c962bb32efb96057c5abbd7b
+    [1445105] = "Interface/AddOns/TestServerWorldMap/tiles/1445105.blp", -- ab8edd31a2bf349c38ed1070ab020dc3
+    [1445106] = "Interface/AddOns/TestServerWorldMap/tiles/1445106.blp", -- ed958c6e4e44b32e7545528941dde6f0
+    [1445107] = "Interface/AddOns/TestServerWorldMap/tiles/1445107.blp", -- c6ade610dc01d637763231bd2a7c7018
+    [1445108] = "Interface/AddOns/TestServerWorldMap/tiles/1445108.blp", -- 40f39444a7c315d11df2577e00b65d6c
+    [1445110] = "Interface/AddOns/TestServerWorldMap/tiles/1445110.blp", -- 866d7ccb9bf3cd7e6f41ab6eabfb4767
+    [1445111] = "Interface/AddOns/TestServerWorldMap/tiles/1445111.blp", -- a5b7ca4175a6acd76aa479192054651b
+    [1445101] = "Interface/AddOns/TestServerWorldMap/tiles/1445101.blp", -- f184ce4ad1de449ba35cb1b81099125a
+    [1445102] = "Interface/AddOns/TestServerWorldMap/tiles/1445102.blp", -- 7086291d852b90612a56936f1f080a40
+    [1445103] = "Interface/AddOns/TestServerWorldMap/tiles/1445103.blp", -- cdc5da56d00004b6d2fd2f06aa10504f
+
+    -- 904 / Silithus Brawl / 929
+    -- ArtTile
+    [1676213] = "Interface/AddOns/TestServerWorldMap/tiles/1676213.blp", -- 7ff868e214d90cb97d0078fef9299365
+    [1676210] = "Interface/AddOns/TestServerWorldMap/tiles/1676210.blp", -- 87db6fd102988f9fe47198f96e2f5515
+    [1676211] = "Interface/AddOns/TestServerWorldMap/tiles/1676211.blp", -- d58dc0c7499668600dcf220c05bbcd76
+    [1676208] = "Interface/AddOns/TestServerWorldMap/tiles/1676208.blp", -- aa13ec8719cf2ceb91bb20a44f3f1a1f
+    [1676206] = "Interface/AddOns/TestServerWorldMap/tiles/1676206.blp", -- 8f717b471e103164124c704b824b7405
+    [1676207] = "Interface/AddOns/TestServerWorldMap/tiles/1676207.blp", -- ab0a25d580708baf24375d33ae71a232
+    [1676204] = "Interface/AddOns/TestServerWorldMap/tiles/1676204.blp", -- ccad2a104c753cb0c76b883cc37cc733
+    [1676209] = "Interface/AddOns/TestServerWorldMap/tiles/1676209.blp", -- 2f24003843498f42c6aa02f670c50333
+    [1676205] = "Interface/AddOns/TestServerWorldMap/tiles/1676205.blp", -- b0b20b2c6fb13b3130e5b7972a522fa6
+    [1676212] = "Interface/AddOns/TestServerWorldMap/tiles/1676212.blp", -- 963a5af03e7d803c9019fcbbda1e23e4
+    [1676215] = "Interface/AddOns/TestServerWorldMap/tiles/1676215.blp", -- 982ec0d5ab6951c152dda2b1075c309c
+    [1676214] = "Interface/AddOns/TestServerWorldMap/tiles/1676214.blp", -- 0a1fbb9f5e12da26774177d395c5d4a3
+
+    -- 1379 / 8.3 Visions of N'Zoth - Prototype / 1189
+    -- ArtTile
+    [2578400] = "Interface/AddOns/TestServerWorldMap/tiles/2578400.blp", -- f3ee614303c14d66b65763e0b3ffc5e4
+    [2578404] = "Interface/AddOns/TestServerWorldMap/tiles/2578404.blp", -- 774af8450ef197ef28185b3200059236
+    [2578405] = "Interface/AddOns/TestServerWorldMap/tiles/2578405.blp", -- e48927fb7454408b8a2fd1ccf645be7d
+    [2578406] = "Interface/AddOns/TestServerWorldMap/tiles/2578406.blp", -- 539d8b41239b37bf8335ef333e357448
+    [2578407] = "Interface/AddOns/TestServerWorldMap/tiles/2578407.blp", -- 6a98a7e74499fc083f8ed156e31fc88b
+    [2578408] = "Interface/AddOns/TestServerWorldMap/tiles/2578408.blp", -- bd1fa922c3733890fff051c6c8550760
+    [2578409] = "Interface/AddOns/TestServerWorldMap/tiles/2578409.blp", -- 334b0f62c556e04d1de993027e7c597e
+    [2578410] = "Interface/AddOns/TestServerWorldMap/tiles/2578410.blp", -- e49d682f6881465b793c3fabf619d85a
+    [2578411] = "Interface/AddOns/TestServerWorldMap/tiles/2578411.blp", -- 30a44fdfbdff03995a2e069ecf593fb2
+    [2578401] = "Interface/AddOns/TestServerWorldMap/tiles/2578401.blp", -- e5e70f492999b62870fbd5bd9491b838
+    [2578402] = "Interface/AddOns/TestServerWorldMap/tiles/2578402.blp", -- 9b191c7aec90dbbc4b72db57a84264ae
+    [2578403] = "Interface/AddOns/TestServerWorldMap/tiles/2578403.blp", -- e1d20bd33ae66527f3eb3ded591c43e9
+
+    -- 1465 / Scarlet Halls / 1277
+    -- ArtTile
+    [2768593] = "Interface/AddOns/TestServerWorldMap/tiles/2768593.blp", -- a8b21de3afadcfbf016c9a52c1e7a1dc
+    [2768597] = "Interface/AddOns/TestServerWorldMap/tiles/2768597.blp", -- be3acde0823ded9beb3d66ad744f98a9
+    [2768598] = "Interface/AddOns/TestServerWorldMap/tiles/2768598.blp", -- 647006030b56609181f84fa694f1566d
+    [2768599] = "Interface/AddOns/TestServerWorldMap/tiles/2768599.blp", -- f6354cbbf96f27b677c8fb6188a5deca
+    [2768600] = "Interface/AddOns/TestServerWorldMap/tiles/2768600.blp", -- 6aed34e2e89ca6a2903cc259b2f5caf1
+    [2768601] = "Interface/AddOns/TestServerWorldMap/tiles/2768601.blp", -- c19addcefc16ceba6ca902ce495f576f
+    [2768602] = "Interface/AddOns/TestServerWorldMap/tiles/2768602.blp", -- 21e5cdc1a074195504424af8a2167a81
+    [2768603] = "Interface/AddOns/TestServerWorldMap/tiles/2768603.blp", -- f5b16fc5fbb94d524305bd12e4a58c28
+    [2768604] = "Interface/AddOns/TestServerWorldMap/tiles/2768604.blp", -- 950772c1261274a80a1f198926f4ee06
+    [2768594] = "Interface/AddOns/TestServerWorldMap/tiles/2768594.blp", -- 3537f141ac53c9c92c8863e4af597392
+    [2768595] = "Interface/AddOns/TestServerWorldMap/tiles/2768595.blp", -- 93d4944c8d373f0cb7497ca351903815
+    [2768596] = "Interface/AddOns/TestServerWorldMap/tiles/2768596.blp", -- 2b7ef32e6cef12db72d8fef18626e765
+
     -- 2271 / Isle of Dorn / 1833
     -- ArtTile
     [5934239] = "Interface/AddOns/TestServerWorldMap/tiles/5934239.blp", -- a8b566e7833d5f0c2d66f6961a180336
