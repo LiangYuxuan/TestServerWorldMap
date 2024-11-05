@@ -1,4 +1,4 @@
-## Interface: 110000
+## Interface: 110005, 110007
 ## Author: Rhythm
 ## Version: 57361.1
 ## Title: TestServerWorldMap
