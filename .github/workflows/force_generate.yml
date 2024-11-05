@@ -1,12 +1,10 @@
-name: regenerate
+name: force-generate
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: 0 1 * * *
 
 jobs:
-  regenerate:
+  force-generate:
     runs-on: ubuntu-latest
 
     steps:
@@ -20,7 +18,7 @@ jobs:
 
       - run: pnpm install
 
-      - run: pnpm start
+      - run: pnpm start:force
         id: build
 
       - uses: EndBug/add-and-commit@v9
@@ -30,7 +28,7 @@ jobs:
           author_email: github-actions[bot]@users.noreply.github.com
           message: |
             chore: update addon to build ${{ steps.build.outputs.build }}
-          tag: v${{ steps.build.outputs.build }}
+          tag: v${{ steps.build.outputs.version }}
 
       - uses: BigWigsMods/packager@master
         if: ${{ steps.build.outputs.updated == 'true' }}

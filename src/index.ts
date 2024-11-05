@@ -223,5 +223,5 @@ await fs.writeFile(tocFile, tocFileTextNew);
 console.log(new Date().toISOString(), '[INFO]: Updated TOC file');
 
 if (process.env.GITHUB_OUTPUT !== undefined) {
-    await fs.writeFile(process.env.GITHUB_OUTPUT, `updated=true\nbuild=${currBuild}\n`, { flag: 'a' });
+    await fs.writeFile(process.env.GITHUB_OUTPUT, `updated=true\nbuild=${currBuild}\nversion=${versionText}\n`, { flag: 'a' });
 }

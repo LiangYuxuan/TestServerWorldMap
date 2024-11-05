@@ -6,6 +6,7 @@
   "scripts": {
     "build": "tsc --project ./",
     "start": "tsx src/index.ts",
+    "start:force": "tsx src/index.ts --force",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
