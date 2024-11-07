@@ -16,10 +16,13 @@ const root = path.resolve(fileURLToPath(import.meta.url), '..', '..');
 const tocFile = path.join(root, 'TestServerWorldMap', 'TestServerWorldMap.toc');
 const tocFileText = await fs.readFile(tocFile, 'utf-8');
 const tocVersionRegex = /## Version: (\d+)\.?(\d*)/;
-const matchResult = tocVersionRegex.exec(tocFileText);
-const prevBuild = matchResult?.[1];
-const prevBuildMinor = typeof matchResult?.[2] === 'string' && matchResult[2].length > 0
-    ? parseInt(matchResult[2], 10)
+const [
+    ,
+    prevBuild,
+    prevBuildMinorText,
+] = tocVersionRegex.exec(tocFileText) ?? [] as (string | undefined)[];
+const prevBuildMinor = typeof prevBuildMinorText === 'string' && prevBuildMinorText.length > 0
+    ? parseInt(prevBuildMinorText, 10)
     : 0;
 
 const currBuild = latestVersion.version.BuildId;
