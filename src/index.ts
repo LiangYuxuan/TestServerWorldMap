@@ -15,7 +15,8 @@ import { latestVersion } from './client.ts';
 const root = path.resolve(fileURLToPath(import.meta.url), '..', '..');
 const tocFile = path.join(root, 'TestServerWorldMap', 'TestServerWorldMap.toc');
 const tocFileText = await fs.readFile(tocFile, 'utf-8');
-const matchResult = /## Version: (\d+)\.?(\d*)/.exec(tocFileText);
+const tocVersionRegex = /## Version: (\d+)\.?(\d*)/;
+const matchResult = tocVersionRegex.exec(tocFileText);
 const prevBuild = matchResult?.[1];
 const prevBuildMinor = typeof matchResult?.[2] === 'string' && matchResult[2].length > 0
     ? parseInt(matchResult[2], 10)
@@ -220,7 +221,7 @@ console.log(new Date().toISOString(), '[INFO]: Updated tile files');
 
 console.log(new Date().toISOString(), '[INFO]: Updating TOC file');
 const versionText = currBuildMinor > 0 ? `${currBuild}.${currBuildMinor.toString()}` : currBuild;
-const tocFileTextNew = tocFileText.replace(/## Version: \d+/, `## Version: ${versionText}`);
+const tocFileTextNew = tocFileText.replace(tocVersionRegex, `## Version: ${versionText}`);
 await fs.writeFile(tocFile, tocFileTextNew);
 console.log(new Date().toISOString(), '[INFO]: Updated TOC file');
 
