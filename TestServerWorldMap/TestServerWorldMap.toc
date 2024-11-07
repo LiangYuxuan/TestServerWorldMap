@@ -1,6 +1,6 @@
 ## Interface: 110005, 110007
 ## Author: Rhythm
-## Version: 57361.1
+## Version: 57409.1
 ## Title: TestServerWorldMap
 ## IconTexture: Interface\AddOns\TestServerWorldMap\Icon.png
 ## X-Curse-Project-ID: 1039290
