@@ -1,6 +1,5 @@
 /* eslint-disable no-await-in-loop */
 /* eslint-disable no-bitwise */
-/* eslint-disable no-console */
 /* eslint-disable import-x/no-unused-modules */
 
 import assert from 'node:assert';
@@ -30,16 +29,16 @@ const currBuildMinor = prevBuild === currBuild ? prevBuildMinor + 1 : 0;
 assert(currBuild, 'Failed to get current build number');
 
 if (process.argv[2] !== '--force' && prevBuild === currBuild) {
-    console.log(new Date().toISOString(), `[INFO]: Build ${currBuild} is up to date`);
+    console.info(new Date().toISOString(), `[INFO]: Build ${currBuild} is up to date`);
     process.exit(0);
 }
 
 const client = new CASCClient('us', latestVersion.product, latestVersion.version);
 await client.init();
 
-console.log(new Date().toISOString(), '[INFO]: Loading remote TACT keys');
+console.info(new Date().toISOString(), '[INFO]: Loading remote TACT keys');
 await client.loadRemoteTACTKeys();
-console.log(new Date().toISOString(), '[INFO]: Loaded remote TACT keys');
+console.info(new Date().toISOString(), '[INFO]: Loaded remote TACT keys');
 
 const fileDataID2CKey = client.preload?.rootFile.fileDataID2CKey;
 assert(fileDataID2CKey, 'Failed to get root file and fileDataID2CKey');
@@ -59,7 +58,7 @@ const loadDB2 = async (fileDataID: number) => {
     return parser;
 };
 
-console.log(new Date().toISOString(), '[INFO]: Loading DB2 files');
+console.info(new Date().toISOString(), '[INFO]: Loading DB2 files');
 const [
     uiMap,
     mapXArt,
@@ -73,9 +72,9 @@ const [
     loadDB2(1134579), // dbfilesclient/worldmapoverlay.db2
     loadDB2(1957212), // dbfilesclient/worldmapoverlaytile.db2
 ]);
-console.log(new Date().toISOString(), '[INFO]: Loaded DB2 files');
+console.info(new Date().toISOString(), '[INFO]: Loaded DB2 files');
 
-console.log(new Date().toISOString(), '[INFO]: Parsing DB2 files');
+console.info(new Date().toISOString(), '[INFO]: Parsing DB2 files');
 const art2Map = new Map(
     mapXArt
         .getAllIDs()
@@ -166,9 +165,9 @@ overlayTile
 
         handleMapFile(fileDataID, rowIndex * 100 + colIndex, artID, 'OverlayTile');
     });
-console.log(new Date().toISOString(), '[INFO]: Parsed DB2 files');
+console.info(new Date().toISOString(), '[INFO]: Parsed DB2 files');
 
-console.log(new Date().toISOString(), '[INFO]: Generating tile files list');
+console.info(new Date().toISOString(), '[INFO]: Generating tile files list');
 let tilesText = 'local _, addon = ...\n\naddon.tiles = {';
 tileFiles
     .sort((a, b) => {
@@ -203,9 +202,9 @@ tilesText += '}\n';
 
 const dataFile = path.join(root, 'TestServerWorldMap', 'Data.lua');
 await fs.writeFile(dataFile, tilesText);
-console.log(new Date().toISOString(), '[INFO]: Generated tile files list');
+console.info(new Date().toISOString(), '[INFO]: Generated tile files list');
 
-console.log(new Date().toISOString(), '[INFO]: Updating tile files');
+console.info(new Date().toISOString(), '[INFO]: Updating tile files');
 const tilesDir = path.join(root, 'TestServerWorldMap', 'tiles');
 await fs.rm(tilesDir, { recursive: true }).catch(() => {
     // do nothing
@@ -213,20 +212,20 @@ await fs.rm(tilesDir, { recursive: true }).catch(() => {
 await fs.mkdir(tilesDir);
 
 for (const { fileDataID, cKey } of tileFiles) {
-    console.log(new Date().toISOString(), `[INFO]: Download ${fileDataID.toString()}.blp`);
+    console.info(new Date().toISOString(), `[INFO]: Download ${fileDataID.toString()}.blp`);
 
     const res = await client.getFileByContentKey(cKey);
 
     const file = path.join(tilesDir, `${fileDataID.toString()}.blp`);
     await fs.writeFile(file, res.buffer);
 }
-console.log(new Date().toISOString(), '[INFO]: Updated tile files');
+console.info(new Date().toISOString(), '[INFO]: Updated tile files');
 
-console.log(new Date().toISOString(), '[INFO]: Updating TOC file');
+console.info(new Date().toISOString(), '[INFO]: Updating TOC file');
 const versionText = currBuildMinor > 0 ? `${currBuild}.${currBuildMinor.toString()}` : currBuild;
 const tocFileTextNew = tocFileText.replace(tocVersionRegex, `## Version: ${versionText}`);
 await fs.writeFile(tocFile, tocFileTextNew);
-console.log(new Date().toISOString(), '[INFO]: Updated TOC file');
+console.info(new Date().toISOString(), '[INFO]: Updated TOC file');
 
 if (process.env.GITHUB_OUTPUT !== undefined) {
     await fs.writeFile(process.env.GITHUB_OUTPUT, `updated=true\nbuild=${currBuild}\nversion=${versionText}\n`, { flag: 'a' });
