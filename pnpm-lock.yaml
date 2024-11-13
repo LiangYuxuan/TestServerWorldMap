@@ -10,14 +10,14 @@ importers:
     dependencies:
       '@rhyster/wow-casc-dbc':
         specifier: ^2.6.1
-        version: 2.6.1
+        version: 2.6.2
       tsx:
         specifier: ^4.19.2
         version: 4.19.2
     devDependencies:
       '@rhyster/eslint-config':
         specifier: ^1.4.1
-        version: 1.4.1(@typescript-eslint/parser@8.14.0(eslint@9.14.0)(typescript@5.6.3))(eslint@9.14.0)(typescript@5.6.3)
+        version: 1.4.2(@typescript-eslint/parser@8.14.0(eslint@9.14.0)(typescript@5.6.3))(eslint@9.14.0)(typescript@5.6.3)
       '@types/node':
         specifier: ^22.9.0
         version: 22.9.0
@@ -244,13 +244,13 @@ packages:
     resolution: {integrity: sha512-nn5ozdjYQpUCZlWGuxcJY/KpxkWQs4DcbMCmKojjyrYDEAGy4Ce19NN4v5MduafTwJlbKc99UA8YhSVqq9yPZA==}
     engines: {node: '>=12.4.0'}
 
-  '@rhyster/eslint-config@1.4.1':
-    resolution: {integrity: sha512-U6gMx86TygYOYbDTvvaYPz/H2z5YWl+axNmr4BG5CVRV3BI1+AU/PnAH6IK3x11bpe+nVlYg01vJwKv2H9ICvw==}
+  '@rhyster/eslint-config@1.4.2':
+    resolution: {integrity: sha512-r0qqd30lp3YFQWNEuJvbKM4DMC/3Q8hwedgrhpH/kO7gHbmJvxfZds2M0HLyh/ZoVyEbpEG2ERQZHBtk1dB+Tw==}
     peerDependencies:
       eslint: '>= 9'
 
-  '@rhyster/wow-casc-dbc@2.6.1':
-    resolution: {integrity: sha512-Us4fkYJ6kxAd6jrWa4ZCm0y9WV5wthwqTJoUqgIcyYk+YapCRTw4Aa51knG3O67hYMeiImvAnPboUK/Gkouphg==}
+  '@rhyster/wow-casc-dbc@2.6.2':
+    resolution: {integrity: sha512-9uafNyVfyxjfM6jjdbisKX+v+W4xgUFcxNosHpvEz2gkChFIauV5S4W/jKaE6yfw0kiP/6gPHOR7nN5Q9Yzzhg==}
 
   '@stylistic/eslint-plugin@2.10.1':
     resolution: {integrity: sha512-U+4yzNXElTf9q0kEfnloI9XbOyD4cnEQCxjUI94q0+W++0GAEQvJ/slwEj9lwjDHfGADRSr+Tco/z0XJvmDfCQ==}
@@ -1000,7 +1000,7 @@ snapshots:
 
   '@nolyfill/is-core-module@1.0.39': {}
 
-  '@rhyster/eslint-config@1.4.1(@typescript-eslint/parser@8.14.0(eslint@9.14.0)(typescript@5.6.3))(eslint@9.14.0)(typescript@5.6.3)':
+  '@rhyster/eslint-config@1.4.2(@typescript-eslint/parser@8.14.0(eslint@9.14.0)(typescript@5.6.3))(eslint@9.14.0)(typescript@5.6.3)':
     dependencies:
       '@eslint/js': 9.14.0
       '@stylistic/eslint-plugin': 2.10.1(eslint@9.14.0)(typescript@5.6.3)
@@ -1019,7 +1019,7 @@ snapshots:
       - supports-color
       - typescript
 
-  '@rhyster/wow-casc-dbc@2.6.1':
+  '@rhyster/wow-casc-dbc@2.6.2':
     dependencies:
       async: 3.2.6
       cli-progress: 3.12.0
