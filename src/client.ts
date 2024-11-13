@@ -1,6 +1,6 @@
 import { CASCClient } from '@rhyster/wow-casc-dbc';
 
-type Version = NonNullable<Awaited<ReturnType<typeof CASCClient['getProductVersion']>>>;
+import type { Version } from '@rhyster/wow-casc-dbc';
 
 const region = 'us';
 const products = [
