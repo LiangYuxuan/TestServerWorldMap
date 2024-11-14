@@ -2,6 +2,8 @@
   "name": "test-server-world-map",
   "type": "module",
   "private": true,
+  "author": "Rhythm",
+  "license": "MIT",
   "scripts": {
     "build": "tsc --project ./",
     "start": "tsx src/index.ts",
