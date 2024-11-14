@@ -1,6 +1,5 @@
 {
   "name": "test-server-world-map",
-  "version": "1.0.0",
   "type": "module",
   "private": true,
   "scripts": {
