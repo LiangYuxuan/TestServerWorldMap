@@ -12,7 +12,7 @@
     "lint:fix": "eslint . --fix"
   },
   "devDependencies": {
-    "@rhyster/eslint-config": "^1.5.1",
+    "@rhyster/eslint-config": "^1.6.0",
     "@types/node": "^22.10.1",
     "eslint": "^9.16.0",
     "typescript": "^5.7.2"
