@@ -13,7 +13,7 @@
   },
   "devDependencies": {
     "@rhyster/eslint-config": "^1.7.22",
-    "@types/node": "^22.15.17",
+    "@types/node": "^22.15.18",
     "eslint": "^9.26.0",
     "typescript": "^5.8.3"
   },
@@ -21,5 +21,5 @@
     "@rhyster/wow-casc-dbc": "^2.11.15",
     "tsx": "^4.19.4"
   },
-  "packageManager": "pnpm@10.10.0"
+  "packageManager": "pnpm@10.11.0"
 }
