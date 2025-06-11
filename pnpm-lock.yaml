@@ -12,8 +12,8 @@ importers:
         specifier: ^2.11.21
         version: 2.11.21
       tsx:
-        specifier: ^4.19.4
-        version: 4.19.4
+        specifier: ^4.20.1
+        version: 4.20.1
     devDependencies:
       '@rhyster/eslint-config':
         specifier: ^1.7.26
@@ -730,9 +730,6 @@ packages:
   function-bind@1.1.2:
     resolution: {integrity: sha512-7XHNxH7qX9xG5mIwxkhumTox/MIRNcOgDrxWsMt2pAr23WHp6MrRlN7FBSFpCpr+oVO0F744iUgR82nJMfG2SA==}
 
-  get-tsconfig@4.10.0:
-    resolution: {integrity: sha512-kGzZ3LWWQcGIAmg6iWvXn0ei6WDtV26wzHRMwDSzmAbcXrTEXxHy6IehI6/4eT6VRKyMP1eF1VqwrVUmE/LR7A==}
-
   get-tsconfig@4.10.1:
     resolution: {integrity: sha512-auHyJ4AgMz7vgS8Hp3N6HXSmlMdUyhSUrfBF16w153rxtLIEOE+HGqaBppczZvnHLqQJfiHotCYpNhl0lUROFQ==}
 
@@ -1006,8 +1003,8 @@ packages:
   tslib@2.8.1:
     resolution: {integrity: sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==}
 
-  tsx@4.19.4:
-    resolution: {integrity: sha512-gK5GVzDkJK1SI1zwHf32Mqxf2tSJkNx+eYcNly5+nHvWqXUJYUkWBQtKauoESz3ymezAI++ZwT855x5p5eop+Q==}
+  tsx@4.20.1:
+    resolution: {integrity: sha512-JsFUnMHIE+g8KllOvWTrSOwCKM10xLcsesvUQR61znsbrcwZ4U/QaqdymmvTqG5GMD7k2VFv9UG35C4dRy34Ag==}
     engines: {node: '>=18.0.0'}
     hasBin: true
 
@@ -1786,10 +1783,6 @@ snapshots:
   function-bind@1.1.2:
     optional: true
 
-  get-tsconfig@4.10.0:
-    dependencies:
-      resolve-pkg-maps: 1.0.0
-
   get-tsconfig@4.10.1:
     dependencies:
       resolve-pkg-maps: 1.0.0
@@ -2019,10 +2012,10 @@ snapshots:
   tslib@2.8.1:
     optional: true
 
-  tsx@4.19.4:
+  tsx@4.20.1:
     dependencies:
       esbuild: 0.25.0
-      get-tsconfig: 4.10.0
+      get-tsconfig: 4.10.1
     optionalDependencies:
       fsevents: 2.3.3
 
