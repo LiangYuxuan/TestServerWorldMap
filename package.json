@@ -13,7 +13,7 @@
   },
   "devDependencies": {
     "@rhyster/eslint-config": "^1.8.8",
-    "@types/node": "^22.18.8",
+    "@types/node": "^22.18.9",
     "eslint": "^9.37.0",
     "typescript": "^5.9.3"
   },
