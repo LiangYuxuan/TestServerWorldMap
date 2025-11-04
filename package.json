@@ -18,7 +18,7 @@
     "typescript": "^5.9.3"
   },
   "dependencies": {
-    "@rhyster/wow-casc-dbc": "^2.11.42",
+    "@rhyster/wow-casc-dbc": "^2.11.43",
     "tsx": "^4.20.6"
   },
   "packageManager": "pnpm@10.20.0"
