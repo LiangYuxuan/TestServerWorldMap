@@ -12,14 +12,14 @@
     "lint:fix": "eslint . --fix"
   },
   "devDependencies": {
-    "@rhyster/eslint-config": "^1.8.14",
+    "@rhyster/eslint-config": "^1.8.15",
     "@types/node": "^24.10.0",
     "eslint": "^9.39.1",
     "typescript": "^5.9.3"
   },
   "dependencies": {
-    "@rhyster/wow-casc-dbc": "^2.11.43",
+    "@rhyster/wow-casc-dbc": "^2.11.44",
     "tsx": "^4.20.6"
   },
-  "packageManager": "pnpm@10.20.0"
+  "packageManager": "pnpm@10.21.0"
 }
