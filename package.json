@@ -21,5 +21,5 @@
     "@rhyster/wow-casc-dbc": "^2.11.45",
     "tsx": "^4.20.6"
   },
-  "packageManager": "pnpm@10.22.0"
+  "packageManager": "pnpm@10.23.0"
 }
