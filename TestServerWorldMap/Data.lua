@@ -257,34 +257,4 @@ addon.tiles = {
     [5663688] = "Interface/AddOns/TestServerWorldMap/tiles/5663688.blp", -- ba64b80941f01701fd29aa98736f326d
     [5663689] = "Interface/AddOns/TestServerWorldMap/tiles/5663689.blp", -- e1c80ed23cf01fa658d11c26f9f4dedc
     [5663691] = "Interface/AddOns/TestServerWorldMap/tiles/5663691.blp", -- 9c93b1f1db1b1d92bfc322c0d5ca49eb
-
-    -- 2585 / Zul'Aman / 2090
-    -- ArtTile
-    [7702126] = "Interface/AddOns/TestServerWorldMap/tiles/7702126.blp", -- d5803d1e080e8175df24bc4914afa3e8
-    [7702130] = "Interface/AddOns/TestServerWorldMap/tiles/7702130.blp", -- e1d3f892e16c822e6d5796998f6490d0
-    [7702131] = "Interface/AddOns/TestServerWorldMap/tiles/7702131.blp", -- fd49510fb3472e6d8bd2eab43a6f8abe
-    [7702132] = "Interface/AddOns/TestServerWorldMap/tiles/7702132.blp", -- 51487f5eed33e30c775c898e1c0f08c7
-    [7702133] = "Interface/AddOns/TestServerWorldMap/tiles/7702133.blp", -- dc4c319be34c0ed001cf2a18e83ae5b6
-    [7702134] = "Interface/AddOns/TestServerWorldMap/tiles/7702134.blp", -- 06ee89d7a9dddd6594086c3ea299d6dd
-    [7702135] = "Interface/AddOns/TestServerWorldMap/tiles/7702135.blp", -- d157d5453f792c09b7ded5b85b3c5362
-    [7702136] = "Interface/AddOns/TestServerWorldMap/tiles/7702136.blp", -- 33ed0f8f1d2ea3359c7eddb71c90a349
-    [7702137] = "Interface/AddOns/TestServerWorldMap/tiles/7702137.blp", -- aa176ac174104e335f23e897129b0790
-    [7702127] = "Interface/AddOns/TestServerWorldMap/tiles/7702127.blp", -- 77fc6f9c49d48e974710bbb4ea3d2023
-    [7702128] = "Interface/AddOns/TestServerWorldMap/tiles/7702128.blp", -- 63bd785d506fa34aca945555229b2f45
-    [7702129] = "Interface/AddOns/TestServerWorldMap/tiles/7702129.blp", -- 7ae8bffb868f93bd395ee48b7c7258d9
-
-    -- 2594 / Eversong Woods / 2089
-    -- ArtTile
-    [7702113] = "Interface/AddOns/TestServerWorldMap/tiles/7702113.blp", -- d1b3e52a052908b4d9b40a55db8c764c
-    [7702118] = "Interface/AddOns/TestServerWorldMap/tiles/7702118.blp", -- 642ed3875335792a4d326667953e623b
-    [7702119] = "Interface/AddOns/TestServerWorldMap/tiles/7702119.blp", -- 61e35a7ac782aa6d8e8dc1c6c11cb8fc
-    [7702120] = "Interface/AddOns/TestServerWorldMap/tiles/7702120.blp", -- c34e3fef26c80cf4d4bf8779b8088ad1
-    [7702121] = "Interface/AddOns/TestServerWorldMap/tiles/7702121.blp", -- b3c322bd829f94997c961b657227adad
-    [7702122] = "Interface/AddOns/TestServerWorldMap/tiles/7702122.blp", -- 5fd2009665beeef3f0a0d78922da742f
-    [7702123] = "Interface/AddOns/TestServerWorldMap/tiles/7702123.blp", -- c59cb2bdefa4d12d29aec66bd7d12fca
-    [7702124] = "Interface/AddOns/TestServerWorldMap/tiles/7702124.blp", -- c4c434721428566f20d7c77f0e4ac8d2
-    [7702125] = "Interface/AddOns/TestServerWorldMap/tiles/7702125.blp", -- b526149aeb191d3828e9d56ec89024a8
-    [7702114] = "Interface/AddOns/TestServerWorldMap/tiles/7702114.blp", -- 28b562cbd2acb6dd3a01cfcf63effe83
-    [7702115] = "Interface/AddOns/TestServerWorldMap/tiles/7702115.blp", -- b7696b7e0560c31556e21ff95700212f
-    [7702117] = "Interface/AddOns/TestServerWorldMap/tiles/7702117.blp", -- 04d08127dc67fea1b1e056a3f0dd448a
 }
