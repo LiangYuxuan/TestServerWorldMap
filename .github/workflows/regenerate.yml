@@ -30,6 +30,7 @@ jobs:
           author_email: github-actions[bot]@users.noreply.github.com
           message: |
             chore: update addon to build ${{ steps.build.outputs.build }}
+          add: TestServerWorldMap/*
           tag: v${{ steps.build.outputs.version }}
 
       - uses: BigWigsMods/packager@master
