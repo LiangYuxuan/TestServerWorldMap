@@ -15,7 +15,7 @@
     "@rhyster/eslint-config": "^2.0.40",
     "@types/node": "^26.6.6",
     "eslint": "^10.14.0",
-    "typescript": "^6.0.3"
+    "typescript": "^7.0.2"
   },
   "dependencies": {
     "@rhyster/wow-casc-dbc": "^2.16.23",
