@@ -186,8 +186,8 @@ importers:
   .:
     dependencies:
       '@rhyster/wow-casc-dbc':
-        specifier: ^2.17.1
-        version: 2.17.1
+        specifier: ^2.17.2
+        version: 2.17.2
       tsx:
         specifier: ^4.23.15
         version: 4.23.15
@@ -196,8 +196,8 @@ importers:
         specifier: ^2.0.43
         version: 2.0.43(@typescript-eslint/parser@8.73.0(eslint@10.15.0)(typescript@6.0.3))(@typescript-eslint/utils@8.73.0(eslint@10.15.0)(typescript@6.0.3))(eslint@10.15.0)(typescript@6.0.3)
       '@types/node':
-        specifier: ^26.6.6
-        version: 26.6.6
+        specifier: ^26.6.7
+        version: 26.6.7
       eslint:
         specifier: ^10.15.0
         version: 10.15.0
@@ -463,8 +463,8 @@ packages:
     peerDependencies:
       eslint: '>= 10'
 
-  '@rhyster/wow-casc-dbc@2.17.1':
-    resolution: {integrity: sha512-rmGMEzCm4pkgGrNaX2bdbvmJGjR1PQ7y5bmFJwlKEqTT7cayRgzApsQTuHp8YQ7pSDSWVsgSjbeuBfBVziPPUQ==}
+  '@rhyster/wow-casc-dbc@2.17.2':
+    resolution: {integrity: sha512-NzalBgvaH9pFnHyVjtmYlStVfUd8QueV8jS40Otc+EpOXUy+nbJNUrnmn12jwpH4YusmWcVWwplnjCKVSyns3Q==}
 
   '@stylistic/eslint-plugin@6.0.1':
     resolution: {integrity: sha512-7nyi2RmGIuzBYGq5C8cFaoQsh+COfo6oHMWCygzg2iaqJJ4RDThaKCMYRkkOUAQWv80R7sbBbpuKZfulH7bFcw==}
@@ -490,8 +490,8 @@ packages:
   '@types/json-schema@7.0.15':
     resolution: {integrity: sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==}
 
-  '@types/node@26.6.6':
-    resolution: {integrity: sha512-MzQj+8Kx3XI40OmUAE6Qoh58ZMNstNNMwn2nfd3qWsfe7nDNSqJNzes4njhz6AHwrSHOffSLwXU6yb474Q4aog==}
+  '@types/node@26.6.7':
+    resolution: {integrity: sha512-tovuRfrUILu6v46bMG+BgXxMvsqPBx2WO2as8Rpln+JTff1dbexMtAM4KFTejmL0axsnSWViCW7MecUQpLuBRA==}
 
   '@typescript-eslint/eslint-plugin@8.73.0':
     resolution: {integrity: sha512-UkygMFer53Yzn29MCYFTHf34hGXf5KJhiDWfIm1tXtXRrym1CS6l5H9Y3yCtPWChpC0/f93H88gdj8tN0dd4kw==}
@@ -1354,7 +1354,7 @@ snapshots:
       - ts-declaration-location
       - typescript
 
-  '@rhyster/wow-casc-dbc@2.17.1':
+  '@rhyster/wow-casc-dbc@2.17.2':
     dependencies:
       async: 3.2.6
       cli-progress: 3.12.0
@@ -1380,7 +1380,7 @@ snapshots:
 
   '@types/json-schema@7.0.15': {}
 
-  '@types/node@26.6.6':
+  '@types/node@26.6.7':
     dependencies:
       undici-types: 8.9.0
 
